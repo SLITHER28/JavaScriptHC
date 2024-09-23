@@ -1,2 +1,2 @@
 # JavaScriptHC
-A code repo for the Javascript series at Chai aur Code Youtube Channel. 
+A code repo for the Javascript files. 
