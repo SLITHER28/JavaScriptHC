@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style = "background-color: black; color: gold">
+
+</body>
+
+<script>
+  //This all are the ReadyState :-
+
+   // 0	 UNSENT	  Client has been created. open() not called yet.
+   // 1	 OPENED	  open() has been called.
+   // 2	 HEADERS_RECEIVED	  send() has been called, and headers and status are available.
+   // 3	 LOADING	Downloading; responseText holds partial data.
+   // 4	 DONE	The operation is complete.
+
+   const xhr = new XMLHttpRequest()  //We are using this XMLHttpRequest() which is actually the method that actually have all the ready state and isi k through aap apna data request send kar sakte ho and receive kar sakte ho and this is basically a class so to make an object of it we are using the new keyword.
+   
+   //So, the OPEN() basically send the requests and it is only available when we make the XMLHttpRequest() type bana lenge.
+
+   const requestURL = 'https://api.github.com/users/Slither28';
+   xhr.open('GET', requestURL)   //So, In OPEN() there are the two parameters required one is the Method which is of many types such as the (get, post etc) and the other is the String.But, Open() k andar parametrs daalne se request jaati nhi h.
+
+   xhr.onreadystatechange = function(){  //This function is written to track our stateChange and whenever  our staeChange happens this function repetitively called.
+    console.log(xhr.readyState);
+    if(xhr.readyState === 4) {
+      
+      // const data = (this.responseText) // It is the String DataTypes.
+
+      const data = JSON.parse(this.responseText) //We converted ths string into the object by using the (JSON.parse)
+
+      console.log(typeof data);  //So, whenever our data comes from the respnse of the url it will be in the form of the string.And now we will have to convert this string into the object so access the data.
+
+      console.log(data.followers);  //this is used when we are talking about the current context.
+    }
+   }
+
+   //So, we have to call the Open. We have to use this to call the Open :-
+   xhr.send(); //By using this our whole operation will be complete.
+
+
+</script>
+
+</html>

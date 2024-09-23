@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: black; color: gold;">
+    <h2>Amazing image</h2>
+    <div >
+
+        <ul id="images">
+
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><a style="color: white;" href="https://google.com" id="google">Google</a></li>
+
+        </ul>
+
+   </div>
+
+</body>
+
+<script>
+
+// document.getElementById('owl').onclick = function(){
+//   alert("Owl Clicked");  //This is also not a good method as it does not provide us with the additional features we have to use the Event Listener. 
+// }
+
+//attachEvent()
+//jQuery.
+
+//Types of Event :-
+
+// type, timestamp, defaultPrevented,,
+// target, toElement, srcElement, currentTarget,
+// clientX, clientY, screenX, screenY
+// altKey, ctrlKey, shiftKey, keyCode. 
+
+//Best Approach
+
+// document.getElementById('images').addEventListener('click', function(e){
+//   console.log("Click inside the ul");
+// })  //fase is a default value.
+
+// document.getElementById('owl').addEventListener('click', function(e){
+//   console.log("Owl Smashed");
+//   e.stopPropagation(); //It will stop our Propogation.
+// }) 
+
+// //This both Event Propogation and the Event Capturing are all part of the Event Propogation.
+
+// // False is a default value which is used for the Event bubbling and it is widely used in the market thats why it is a default value.Bubbling goes from the bottom to the top.
+
+// // True is used for the Event Capturing in some cases it is also used.Capturing goes from the top to the bottom.
+
+// document.getElementById('google').addEventListener('click', function(e){
+
+//   e.preventDefault();
+//   console.log("Google Clicked");
+//   e.stopPropagation();
+
+// }, false)
+
+//Simple Project of how to remove the element by clicking the id.
+
+document.querySelector('#images').addEventListener('click', function(e){
+  // console.log(e);  //It will print what type of event is happening.
+  // console.log(e.target); //Kis ki wajah se event h rha h usko target karta h.
+  // console.log(e.target.parentNode);  //It will give us the parent node of that target.
+
+  console.log(e.target.tagName);
+
+  if(e.target.tagName === 'IMG') {
+  
+  console.log(e.target.id);
+  let removeIt = e.target.parentNode
+
+  removeIt.remove(); //1st Method.
+}
+
+})
+
+// removeIt.parentNode.removeChild(removeIt); //2nd Method.
+
+</script>

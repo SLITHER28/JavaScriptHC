@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+    #stop {
+      height: 50px;
+      width: 100px;
+      margin: 10px;
+      background-color: lavender;
+    }
+
+    #start {
+      height: 50px;
+      width: 100px;
+      margin: 10px;
+      background-color:honeydew;
+    }
+
+    .but {
+      font-size: 30px;
+      font-weight: 400px;
+    }
+
+  </style>
+</head>
+<body style = "background-color: black; color: gold">
+<h1>Siddhant and Code.</h1>
+<button id = "start"><span class = "but">Start</span></button>
+<button id = "stop"><span class = "but">Stop</span></button>
+
+</body>
+
+<script>
+
+  const sayDate = function(str){
+    console.log(str, Date.now());
+  }
+
+  let stopMe;
+  document.querySelector('#start').addEventListener('click', function(){
+
+    stopMe = setInterval(sayDate, 100, "Siddhant");
+    console.log("Started");
+
+  })
+
+document.querySelector('#stop').addEventListener('click', function(){
+
+  clearInterval(stopMe);
+  console.clear();  //This will clear the console.
+  console.log("Stopped");
+
+})
+
+
+</script>
+
+</html>
